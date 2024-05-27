@@ -1,0 +1,18 @@
+---
+api_repo_url: "https://github.com/vuitinhvl7x/VDT2024-Midterm-api"
+
+api_container_name: "api_service"
+
+api_image: "users-app"
+
+api_image_tag: "latest"
+
+api_port: 4000
+
+git_credentials: "https://{{ git_username }}:{{ git_password }}@{{ api_repo_url | regex_replace('^https://', '') }}"
+
+api_repo_version: "dev"
+
+docker_user: xuanhaj
+clone_dest: /home/descent/Documents/api
+env_file_path: "{{clone_dest}}/users/.env"

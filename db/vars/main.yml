@@ -1,0 +1,5 @@
+postgres_db: StudentList
+postgres_user: postgres
+postgres_password: "xuanhai201041"
+postgres_port: 5432
+postgres_volume: /var/lib/postgresql/data

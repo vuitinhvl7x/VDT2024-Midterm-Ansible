@@ -1,0 +1,24 @@
+---
+- name: Install docker
+  hosts:
+    - all_hosts
+  become: true
+  roles:
+    - common
+
+- name: Deploy API and Database on localhost
+  hosts: apiserver
+  become: yes
+  vars_files:
+    - vault.yml
+  roles:
+    - api
+    - db
+
+- name: Deploy Web Application on remotehost
+  hosts: webserver
+  become: yes
+  vars_files:
+    - vault.yml
+  roles:
+    - web

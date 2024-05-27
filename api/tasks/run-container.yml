@@ -1,0 +1,18 @@
+---
+- name: Ensure Docker is running
+  ansible.builtin.service:
+    name: docker
+    state: started
+
+- name: Stop and remove existing API container if running
+  ansible.builtin.command:
+    cmd: docker rm -f {{ api_container_name }}
+  ignore_errors: yes
+
+- name: Run API container
+  ansible.builtin.command:
+    cmd: >
+      docker run -d --name {{ api_container_name }}
+      -p {{ api_port }}:{{ api_port }}
+      --env-file {{ env_file_path }}
+      {{ api_image }}:{{ api_image_tag }}

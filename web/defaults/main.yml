@@ -1,0 +1,8 @@
+web_container_name: "web_service"
+web_image: "my-react-app"
+web_image_tag: "v3"
+web_port: 3000
+web_repo_url: "https://github.com/vuitinhvl7x/VDT2024-Midterm-frontend"
+web_repo_version: "main"
+
+web_git_credentials: "https://{{ git_username }}:{{ git_password }}@{{ web_repo_url | regex_replace('^https://', '') }}"

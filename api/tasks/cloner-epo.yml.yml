@@ -1,0 +1,19 @@
+---
+- name: Ensure destination directory exists
+  ansible.builtin.file:
+    path: "{{ api_clone_dest }}"
+    state: directory
+
+- name: Clone API repository
+  ansible.builtin.git:
+    repo: "{{ api_repo_url }}"
+    dest: "{{ api_clone_dest }}"
+    version: "{{ api_repo_version }}"
+    force: yes
+    accept_hostkey: yes
+    clone: yes
+  register: git_clone_result
+
+- name: Print Git clone result
+  ansible.builtin.debug:
+    msg: "Git clone result: {{ git_clone_result }}"

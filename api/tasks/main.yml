@@ -1,0 +1,9 @@
+---
+- name: Clone API repository
+  include_tasks: clone-repo.yml
+
+- name: Build Docker image for API service
+  include_tasks: build-image.yml
+
+- name: Run API service container
+  include_tasks: run-container.yml
