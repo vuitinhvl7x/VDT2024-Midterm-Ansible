@@ -1,5 +1,5 @@
 ---
-api_clone_dest: "/home/descent/Documents/vdt/vdt2024-ansible/roles/api/files"
+api_clone_dest: "/home/descent/Documents/vdt/vdt2024-api"
 docker_user: xuanhaj
 env_file_path: "{{ clone_dest }}/users/.env"
 
